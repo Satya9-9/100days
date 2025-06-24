@@ -46,8 +46,8 @@ def card_picking_player(cards):
     return taken_out_suit_player, player_card
 
 
-dealer = 0
-player = 0
+dealer = []
+player = []
 
 game_over = False
 
@@ -58,27 +58,28 @@ while not game_over:
 
     if taken_out_suit_player != taken_out_suit_dealer and dealer_card != player_card:
 
-        if player_card == 1 and player + player_card == 21 or player <= 10 :
+        if player_card == 1 and sum(player) == 21 or sum(player) <= 10 :
             player_card = 11
 
-        elif dealer_card == 1 and dealer + dealer_card == 21 or dealer <= 10 :
+        elif dealer_card == 1 and sum(dealer) == 21 or sum(dealer) <= 10 :
             dealer_card = 11
 
         print("player",taken_out_suit_player," player card ",player_card)
-        player += player_card
+        player.append(player_card)
 
-        print(player ,"\n")
+
+        print(sum(player) ,"\n")
 
         print("dealer", taken_out_suit_dealer, " dealer card ",dealer_card)
-        dealer += dealer_card
+        dealer.append(dealer_card)
 
-        print(dealer,"\n")
+        print(sum(dealer),"\n")
 
-    if dealer >= 21 :
+    if sum(dealer) >= 21 :
         print("player wins!")
         game_over = True
 
-    elif player >= 21 :
+    elif sum(player) >= 21 :
         print("dealer wins!")
         game_over = True
 
