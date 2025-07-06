@@ -13,6 +13,7 @@ country = []
 i = random.randint(0,len(game_data_dict)-1)
 j = random.randint(0,len(game_data_dict)-1)
 score = 0
+
 for q in range(len(game_data_dict)):
     name.append(game_data_dict[q]['name'])
     follower_cnt.append(game_data_dict[q]['follower_count'])
