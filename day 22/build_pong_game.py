@@ -9,7 +9,7 @@ screen = Screen()
 screen.setup(width=600, height=600)
 screen.bgcolor("black")
 screen.title("Pong")
-speed = 0
+
 
 #
 # tim = Turtle()
@@ -28,8 +28,8 @@ speed = 0
 #     tim.forward(10)
 screen.tracer(0)
 
-r_paddle = Paddle((250, 0))
-l_paddle = Paddle((-250, 0))
+r_paddle = Paddle((280, 0))
+l_paddle = Paddle((-280, 0))
 ball = Ball()
 scoreboard = Scoreboard()
 
@@ -41,7 +41,7 @@ screen.onkey(l_paddle.go_up, "w")
 screen.onkey(l_paddle.go_down, "s")
 
 game_is_on = True
-ball.speed("slowest")
+
 while game_is_on:
     screen.update()
     time.sleep(ball.move_speed)
@@ -53,10 +53,13 @@ while game_is_on:
         ball.bounce_y()
 
     # detecting collision of ball with the paddle
-    if ball.distance(r_paddle) < 40:
-        print("Game Over")
+    if ball.distance(r_paddle) < 50:
+        print("player 2 got the ball")
         ball.bounce_x()
 
+    if ball.distance(l_paddle) < 50:
+        print("player 1 got the ball")
+        ball.bounce_x()
 
     # if left paddle missses the ball
     if ball.xcor() < -250:
@@ -73,11 +76,6 @@ while game_is_on:
         # ball.bounce_x()
         ball.reset_ball()
         scoreboard.r_point()
-
-
-    if ball.distance(l_paddle) < 40:
-        print("Game Over for 2")
-        ball.bounce_x()
 
 
 screen.exitonclick()
