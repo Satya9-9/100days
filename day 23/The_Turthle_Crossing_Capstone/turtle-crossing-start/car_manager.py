@@ -9,7 +9,7 @@ MOVE_INCREMENT = 10
 class CarManager:
     def __init__(self):
         self.all_cars = []
-
+        self.car_speed = MOVE_INCREMENT
 
     def create_car(self):
         dice = random.randint(1, 6)
@@ -24,6 +24,10 @@ class CarManager:
     def move_car(self):
         for car in self.all_cars:
             car.backward(MOVE_INCREMENT)
+
+    def level_up(self):
+        self.car_speed *= MOVE_INCREMENT
+
 
 
 
