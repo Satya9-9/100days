@@ -8,7 +8,7 @@ with open("my_txt.txt") as file:
 # problem this file open or closes thats it
 
 with open("my_txt.txt", mode="a") as file:
-    file.write("\nsatya")
+    file.write(" satya")
 
 with open("new_file.md", mode="w") as file:
     file.write("hello")
