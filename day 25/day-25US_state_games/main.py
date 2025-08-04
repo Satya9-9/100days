@@ -55,10 +55,12 @@ while game_is_on:
         game_is_on = False
 
     elif answer_state == "Exit":
-        missing_State = []
-        for state in list_of_states:
-            if state not in user_entered_states:
-                missing_State.append(state)
+        # list comprehesions
+
+        missing_State = [state for state in list_of_states if state not in user_entered_states]
+        # for state in list_of_states:
+        #     if state not in user_entered_states:
+        #         missing_State.append(state)
 
         new_data = pd.DataFrame(missing_State)
         new_data.to_csv("states_to_learn.csv")
