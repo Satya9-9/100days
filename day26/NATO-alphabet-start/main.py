@@ -33,9 +33,20 @@ print(dict)
 
 #TODO 2. Create a list of the phonetic code words from a word that the user inputs.
 
-user_input = input("whats your name: ").upper().strip()
-# list_letters = [letter for letter in user_input] here i forgot by key we can access the value 
+# list_letters = [letter for letter in user_input] here i forgot by key we can access the value
 # phoenetic = {letter:word for letter,word in dict.items() if letter in list_letters}
 # print(phoenetic)
-list_letter = [dict[letter] for letter in user_input]
-print(list_letter)
+
+def generate_NATO():
+
+    user_input = input("whats your name: ").upper().strip()
+    try:
+        list_letter = [dict[letter] for letter in user_input]
+
+    except KeyError:
+        print("Sorry letters and alphabets only")
+        generate_NATO()
+    else:
+        print(list_letter)
+
+generate_NATO()
