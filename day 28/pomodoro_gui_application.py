@@ -104,10 +104,4 @@ check.grid(row=3,column=1)
 
 
 
-
-
-
-
-
-
 window.mainloop()
